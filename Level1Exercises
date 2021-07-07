@@ -1,0 +1,24 @@
+#This function define the lesser of two number ONLY when both number are even
+#And it will retunr the greater when one or both are odd.
+#x and y are the input for the function
+def lesser_of_two (x,y):
+  if x %2 ==0 and y %2 == 0:
+    if x < y:
+      return x
+    else:
+      return y
+  elif x %2 ==1 or y %2 ==1:
+    if x > y:
+      return x
+    else:
+      return y
+result = lesser_of_two(5,11)
+print(result)
+# Master yoda function to invert the order of the string provided in the function
+def masterYoda(input_text):
+  split_list = input_text.split()
+  split_list.reverse()
+  reverse_string = " ".join(split_list)
+  return reverse_string
+result = masterYoda ("Honey I'm Home")
+print (result)
