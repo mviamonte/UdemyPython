@@ -14,6 +14,7 @@ def lesser_of_two (x,y):
       return y
 result = lesser_of_two(5,11)
 print(result)
+
 # Master yoda function to invert the order of the string provided in the function
 def masterYoda(input_text):
   split_list = input_text.split()
@@ -21,4 +22,28 @@ def masterYoda(input_text):
   reverse_string = " ".join(split_list)
   return reverse_string
 result = masterYoda ("Honey I'm Home")
+print (result)
+
+#Find two numbers 3 in a list 
+def has_33(nums):
+    for index in range (0, len(nums)-1):
+        if nums[index] == nums [index+1]:
+            return True
+        else:
+            continue
+    return False
+result = has_33 ([2,7,6,3])
+print (result)
+
+##For a given string, return a string where for every character in the original 
+#there are three character
+#paper_doll("Hello") --> "HHHeeelllooo"
+#Programmer comments, I need to iterate trough the string and use de "*" operator
+#for every character and return that result
+def paper_doll(text):
+    new_text =""
+    for letter in text:
+        new_text = new_text + letter*3
+    return new_text
+result = paper_doll("Missisippi")
 print (result)
