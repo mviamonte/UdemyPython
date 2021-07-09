@@ -35,6 +35,36 @@ def has_33(nums):
 result = has_33 ([2,7,6,3])
 print (result)
 
+#Given three integers between 1 and 11, if their sum is less than or equal to 21
+#return their sum. If their sum exceeds 21 and there's an eleven, reduce the total sum
+#by 10. Finally, if the sum (even after adjustment) exceeds 21, return BUST
+#Programmer comments: The first part is the "easy" one. Just need to check that the sum
+#of the three numbers is less or equal than 21. COOL
+#However if their sum is greater than 21 and there is an eleven we need to reduce
+#by 10. After the reduction in the last case still exceeds 21, return BUST
+#Logic: one "if" statement for the sum less than and one elif to check if it has
+#11 on it. The last "else" is to return BUST
+#The tricky part is sum the elements of the list
+#
+def blackjack(a,b,c):
+    list_input=[a,b,c]
+    list_sum =int()
+    reduce_list = int()
+    for number in list_input:
+        list_sum=list_sum+number
+    if list_sum <= 21:
+        return list_sum
+    elif list_sum > 21 and 11 in list_input:
+        reduce_list = list_sum -10
+        if reduce_list > 21:
+            return "BUST"
+        else:
+            return reduce_list    
+    return list_sum
+
+result = blackjack(11,12,10)
+print (result)
+
 ##For a given string, return a string where for every character in the original 
 #there are three character
 #paper_doll("Hello") --> "HHHeeelllooo"
@@ -47,3 +77,44 @@ def paper_doll(text):
     return new_text
 result = paper_doll("Missisippi")
 print (result)
+
+#Return the sum of the numbers in the array, except ignore sections of numbers
+#starting with a 6 and extending to the next 9 (every 6 will be followed by at least
+#one 9). Return 0 for no numbers
+#Programmer comments: If there is no six, it's easy. The hard part comes when
+#a six is found
+#The key here is to understand that i need to use properly the "break" statement
+#I made many mistakes, definitely need to check for help because I wasn't 
+#sure about how to do it. I did a LOT of debug using the return statement. 
+
+#NOTE TO FIX. It's detecting the number 6 but is adding the number 9 to the summer_69
+# Positive note, the number 1 between de 6 and the 9 is not taking in the SUM
+
+def summer_69(array):
+    sum =int()
+    indicator = True
+    for number in array:
+        while indicator == True:
+            if number !=6:
+                sum = sum + number
+                break
+            else:
+                indicator = False
+        while indicator == False:
+            if number !=9:
+                break
+            else:
+                indicator = True
+                break
+    return sum, indicator, number
+result = summer_69 ([1,7,6,9,1,1])
+print (result)
+
+letter = {a:
+[" "," "," "," "," "
+" "," "," "," "," "
+" "," "," "," "," "
+" "," "," "," "," "
+" "," "," "," "," "]}
+]
+
