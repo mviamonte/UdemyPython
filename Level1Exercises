@@ -118,3 +118,17 @@ letter = {a:
 " "," "," "," "," "]}
 ]
 
+
+#COUNT PRIMES: Write a function that returns the number of prime numbers that 
+#exist up to and including a given number
+
+def count_primes(values):
+    sum=0
+    primes=[]
+    for number in range(2,values):
+        if number ==2 or number ==3 or number ==5 or number ==7 or number %2 !=0 and number %3 !=0 and number %5 !=0 and number %7 !=0:
+            sum = sum +1
+            primes.append(number)
+    return sum,primes
+result = count_primes (100)
+print (result)
