@@ -132,3 +132,59 @@ def count_primes(values):
     return sum,primes
 result = count_primes (100)
 print (result)
+'''Problem type 
+Validate string against dictionary
+
+Question(s) asked 
+1) Given a string and a list of words, determine if the string is valid based on the list of words
+
+2) Determine if the given string contains valid words while ignoring extraneous characters
+Possible approach:
+Let's iterate through the dictionary which by default uses "keys" as iterators
+Later on, I can try to find in the values or items? Let's see. 
+'''
+
+d = {"Bicycle":["BMC","All-City"],"Pets":["Benito","Bilbo"]}
+ad ={"Bicycle":"BMC","Pets":"Bilbo"}
+def find_string(string):
+    list_string = string.split()
+    for string_value in list_string:
+        for key_value in ad.values():
+            if string_value == key_value:
+                return True, list_string
+    return list_string            
+result = find_string ("BMC is great")
+print (result)
+
+#Use for, .split(), and if to create a Statement that will print out words that start with 's':
+#In this case we need to iterate trough the whole string and to separate them and iterate as 
+#a set of strings we need to use the split() method. 
+#First I need to save the list generated from the input string
+st = 'Print only the words that start with s in this sentence'
+def print_s(st):
+    s_words = []
+    splitted_st = st.split()
+    for word in splitted_st:
+        if word[0] == "s":
+            s_words.append(word)
+    return s_words            
+result = print_s(st)
+print (result)
+
+#Use for, .split(), and if to create a Statement that will print out words that start with 's':
+#In this case we need to iterate trough the whole string and to separate them and iterate as 
+#a set of strings we need to use the split() method. 
+#First I need to save the list generated from the input string
+st = 'Print every word that start with s in this sentence'
+def print_s(st):
+    s_words = []
+    even_count = int()
+    splitted_st = st.split()
+    for word in splitted_st:
+        if len(word) %2 ==0:
+            even_count = even_count + 1
+    return even_count            
+result = print_s(st)
+print (result)
+#print (f"There is {result} words in the sentence")
+
