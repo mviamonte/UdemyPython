@@ -188,3 +188,69 @@ result = print_s(st)
 print (result)
 #print (f"There is {result} words in the sentence")
 
+list = ["iPhone,98,29","Case, 96, 25","Elastic Band, 56,3"]
+
+#Use for, .split(), and if to create a Statement that will print out words that start with 's':
+#In this case we need to iterate trough the whole string and to separate them and iterate as 
+#a set of strings we need to use the split() method. 
+#First I need to save the list generated from the input string
+'''st = 'Print every word that start with s in this sentence'
+def print_s(st):
+    s_words = []
+    even_count = int()
+    splitted_st = st.split()
+    for word in splitted_st:
+        if len(word) %2 ==0:
+            even_count = even_count + 1
+    return even_count            
+result = print_s(st)
+print(result)'''
+guess_number =56
+#guess_number.randint(0,100)
+while True:
+    user_input = int(input("Please provide a number:  "))
+    if user_input in range (100):
+        if user_input == guess_number:
+            print ("Congratulations you guess the number")
+            break
+        elif user_input <= 30:
+            print ("You are WARM, pick again")
+    else:
+        print ("Number must be in the range of 0-100")
+        
+
+
+## Positional Arguments 
+#You need to specify the expected parameters
+'''def myfunc (a,b,c=0):
+    #Retunrs 5% of the sum of a and b
+    return sum ((a,b))*0.05
+result = myfunc(40,60,80)
+print (result)'''
+#The best way of do it is pass the "*args" Arguments
+#"*args" will be treated as a "tuple".
+#"*args" could be any other string
+def myfunc (*args):
+    #Returns 5% of the sum of a and b
+    return sum ((args))*0.05
+result = myfunc(40,60,80)
+print (result)
+
+items = ["iPhone,98,29","Case,96,25","Elastic Band,56,3"]
+columns = ["Item","Rank","Price"]
+def sort_list (items):
+    converted_list = []
+    converted_list_int = []
+    for index,item in enumerate (items):
+        converted_list.append(items[index].split(','))
+    converted_list_int = converted_list
+    for j,int_item in enumerate (converted_list_int):
+        converted_list_int[j][1] = int(converted_list[j][1])
+        converted_list_int[j][2] = int(converted_list[j][2])
+    #return converted_list_int
+    #list_by_rank= sorted (converted_list_int, key=lambda highest_rate:highest_rate[1],reverse = True)
+    list_by_two = sorted (converted_list_int, key=lambda sorted_value1:sorted_value1[1],sorted_value1[2])
+    return list_by_two
+result = sort_list(items)
+print ((columns)*3)
+print (result)
