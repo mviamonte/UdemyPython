@@ -235,7 +235,7 @@ def myfunc (*args):
     return sum ((args))*0.05
 result = myfunc(40,60,80)
 print (result)
-
+### Sorted program Shopify failed interview
 items = ["iPhone,98,29","Case,96,25","Elastic Band,56,3"]
 columns = ["Item","Rank","Price"]
 def sort_list (items):
@@ -254,3 +254,38 @@ def sort_list (items):
 result = sort_list(items)
 print ((columns)*3)
 print (result)
+
+#Given that list I need to sort by second element and third. I can only sort by the one "key"
+raw_list=["Remote,80,56","Bottle,89,20","Towel,75,10","DuffleBag,95,99","Pants,95,91"]
+new_list=[]
+sorted_list=[]
+
+def sort_list(raw_list):
+    for i,item in enumerate(raw_list):
+        #I need to create a new list using the split method with "," for separator
+        new_list.append(item.split(","))
+        #In place this part replace the second and third element of every item for a integer
+        new_list[i][1] = int(new_list[i][1])
+        new_list[i][2] = int(new_list[i][2])
+    #Once I have the new list now I'm able to sort using either the "rate" or the price
+    sorted_list = sorted(new_list,key = lambda item:item[1],reverse=True)
+    #If I used this: lambda item:(item[1],item[2]) and if it finds  equals item[1] it will sort by the item[2]
+    return sorted_list
+    
+result = sort_list(raw_list)
+print (result)
+
+
+
+#How to define a function with input. 
+#One way to do this is define or "force" to 
+def user_choice():
+    '''
+    User inputs a number (0-10) and we return this in integer form.
+    No parameter is passed when calling this function.
+    '''
+    choice = int(input("Please input a number (0-10)"))
+    return choice
+result = user_choice()
+print (result)
+print(type(result))
