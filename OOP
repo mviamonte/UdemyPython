@@ -1,0 +1,105 @@
+#Inheritance
+#Is a way to form new classes using existing clases or clasess that have already been defined. The newly formed classes are
+#called derived clasess. Objective: reduce and reutilize code. 
+#The derived clasess (descendants) override or extend the funcionality of base clases. 
+#Override example = the "whoAmi method" 
+#Extend example = the "bark" method. 
+
+class Animal:
+    def __init__(self):
+        print("Animal created")
+
+    def whoAmI(self):
+        print("Animal")
+
+    def eat(self):
+        print("Eating")
+
+
+class Dog(Animal):
+    def __init__(self):
+        Animal.__init__(self)
+        print("Dog created")
+
+    def whoAmI(self):
+        print("Dog")
+
+    def bark(self):
+        print("Woof!")
+d=Dog()
+print(d)
+d.whoAmI()
+d.eat()
+d.bark()
+
+
+#Polymorphism
+
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return self.name+' says Woof!'
+    
+class Cat:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return self.name+' says Meow!' 
+    
+niko = Dog('Niko')
+felix = Cat('Felix')
+
+print(niko.speak())
+print(felix.speak())
+
+
+#Abstract Clasess
+#Animal class would never been used as "principal" it only will be called form Dog and Cat class.
+class Animal:
+    def __init__(self, name):    # Constructor of the class
+        self.name = name
+
+    def speak(self):              # Abstract method, defined by convention only
+        raise NotImplementedError("Subclass must implement abstract method")
+
+
+class Dog(Animal):
+    
+    def speak(self):
+        return self.name+' says Woof!'
+    
+class Cat(Animal):
+
+    def speak(self):
+        return self.name+' says Meow!'
+    
+fido = Dog('Fido')
+isis = Cat('Isis')
+
+print(fido.speak())
+print(isis.speak())
+
+
+#Example of a clases with exercise
+#Cylinder volume is calculated using the radius, the height and the value of pi
+#from math import pow
+import math
+class Cylinder:
+    pi = 3.14
+    def __init__(self,height=1,radius=1):
+        self.height=height
+        self.radius=radius
+
+    def volume(self):
+        #Here is two ways to use math operations
+        #print(self.pi*math.pow(self.radius,2)*self.height)
+        print (self.pi*((self.radius)**2)*self.height)
+    def surface_area(self):
+        print(2*self.pi*self.radius*self.height+2*self.pi*(math.pow(self.radius,2)))
+        
+#First argument is the height according to the definition of the __init__ method 
+s=Cylinder(5,4)
+s.surface_area()
