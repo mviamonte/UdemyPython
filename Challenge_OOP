@@ -1,0 +1,19 @@
+class Account:
+    def __init__ (self,owner,balance):
+        #Attributes of the class
+        self.owner = owner
+        self.balance = balance
+        #self.deposit = deposit
+        print ("Account owner: {}".format(self.owner))
+        print ("Account balance: {}".format(self.balance))
+        #print (f'Account owner:')
+#First method define a deposit to the account
+    def deposit(self,deposit):
+        self.balance = self.balance + deposit
+        return self.balance
+    def withdraw(self):
+        pass
+
+acct1 = Account("Miguel",200)
+#print(acct1.balance)
+print(acct1.deposit(50))
